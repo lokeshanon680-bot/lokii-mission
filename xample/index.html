@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preethi’s Mission</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background-orb orb-one"></div>
+    <div class="background-orb orb-two"></div>
+    <div class="site-background-image" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <section id="dashboardPage" class="page">
+        <section class="dashboard-card">
+          <div class="dashboard-copy">
+            <p class="eyebrow">Focus • Discipline • Growth</p>
+            <h1 class="animated-title">Preethi’s Mission</h1>
+            <p class="hero-copy">
+              A calm, motivating mission board for SSC CGL 2027 preparation with
+              revision tracking, notes, question papers, and daily goals.
+            </p>
+            <blockquote class="quote">
+              “Small steps every day create a big victory at the end.”
+            </blockquote>
+            <a class="start-btn" href="#planner">Start Mission</a>
+          </div>
+
+        <div class="dashboard-side">
+          <div class="profile-frame">
+            <img src="preethii.jpeg" alt="Preethi" />
+          </div>
+          <div class="countdown-card">
+            <p class="countdown-label">SSC CGL 2027 Countdown</p>
+            <div class="countdown-grid">
+              <div><span id="days">00</span><small>Days</small></div>
+              <div><span id="hours">00</span><small>Hours</small></div>
+              <div><span id="minutes">00</span><small>Minutes</small></div>
+              <div><span id="seconds">00</span><small>Seconds</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      </section>
+
+      <section id="planner" class="planner-page page hidden">
+        <div class="planner-heading">
+          <div class="planner-heading-row">
+            <button id="backToPlanner" type="button" class="small-btn back-btn">← Dashboard</button>
+            <div>
+              <p class="eyebrow">Mission Control</p>
+              <h2 id="plannerTitle">Preethi’s Mission</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="stat-row">
+            <div>
+              <span id="completedCount">0</span>
+              <small>topics done</small>
+            </div>
+            <div>
+              <span id="targetCount">0</span>
+              <small>tasks left</small>
+            </div>
+          </div>
+          <div class="progress-block">
+            <div class="label-row">
+              <span>Overall syllabus progress</span>
+              <strong id="progressPercent">0%</strong>
+            </div>
+            <div class="progress-bar">
+              <div id="progressFill"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-grid">
+          <article class="card section-card" data-section="syllabus">
+            <button class="section-toggle" type="button" aria-expanded="false">
+              <span class="section-label">01</span>
+              <h3>📚 Syllabus Tracker</h3>
+            </button>
+            <div class="section-body">
+              <div id="syllabusChecklist" class="checklist"></div>
+              <form id="syllabusForm" class="stacked-form">
+                <input id="syllabusInput" type="text" placeholder="Add a custom topic" required />
+                <button type="submit">Add Topic</button>
+              </form>
+            </div>
+          </article>
+
+          <article class="card section-card" data-section="revision">
+            <button class="section-toggle" type="button" aria-expanded="false">
+              <span class="section-label">02</span>
+              <h3>📝 Revision Section</h3>
+            </button>
+            <div class="section-body">
+              <form id="revisionForm" class="stacked-form">
+                <input id="revisionTopic" type="text" placeholder="Topic revised" required />
+                <input id="revisionProgress" type="number" min="0" max="100" value="30" required />
+                <button type="submit">Save Revision</button>
+              </form>
+              <ul id="revisionList" class="item-list"></ul>
+            </div>
+          </article>
+
+          <article class="card section-card" data-section="targets">
+            <button class="section-toggle" type="button" aria-expanded="false">
+              <span class="section-label">03</span>
+              <h3>🎯 Daily Targets</h3>
+            </button>
+            <div class="section-body">
+              <form id="targetForm" class="stacked-form">
+                <input id="targetInput" type="text" placeholder="Create a study target" required />
+                <button type="submit">Add Goal</button>
+              </form>
+              <ul id="targetList" class="item-list"></ul>
+            </div>
+          </article>
+
+          <article class="card section-card" data-section="papers">
+            <button class="section-toggle" type="button" aria-expanded="false">
+              <span class="section-label">04</span>
+              <h3>📄 Previous Question Papers</h3>
+            </button>
+            <div class="section-body">
+              <form id="paperForm" class="stacked-form">
+                <label class="file-label modern-file" for="paperInput">
+                  <span>Choose File</span>
+                </label>
+                <input id="paperInput" type="file" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.txt" required />
+                <div id="paperFilePreview" class="file-preview hidden"></div>
+                <button type="submit">Save Paper</button>
+              </form>
+              <ul id="paperList" class="item-list"></ul>
+            </div>
+          </article>
+
+          <article class="card section-card" data-section="notes">
+            <button class="section-toggle" type="button" aria-expanded="false">
+              <span class="section-label">05</span>
+              <h3>🧠 Formula Notes</h3>
+            </button>
+            <div class="section-body">
+              <form id="noteForm" class="stacked-form">
+                <input id="noteTitle" type="text" placeholder="Note title" required />
+                <textarea id="noteContent" rows="4" placeholder="Paste a formula or quick note"></textarea>
+                <label class="file-label modern-file" for="noteFileInput">
+                  <span>Choose File</span>
+                </label>
+                <input id="noteFileInput" type="file" accept=".txt,.pdf,.jpg,.jpeg,.png,.doc,.docx" />
+                <div id="noteFilePreview" class="file-preview hidden"></div>
+                <button type="submit">Save Note</button>
+              </form>
+              <ul id="noteList" class="item-list"></ul>
+            </div>
+          </article>
+
+          <article class="card section-card" data-section="focus">
+            <button class="section-toggle" type="button" aria-expanded="false">
+              <span class="section-label">06</span>
+              <h3>⚠️ Weak & Important Topics</h3>
+            </button>
+            <div class="section-body">
+              <div class="split-grid">
+                <div>
+                  <h4>Weak Topics</h4>
+                  <form id="weakForm" class="stacked-form compact">
+                    <input id="weakInput" type="text" placeholder="Add a weak topic" required />
+                    <button type="submit">Add</button>
+                  </form>
+                  <ul id="weakList" class="item-list"></ul>
+                </div>
+                <div>
+                  <h4>Important Topics</h4>
+                  <form id="importantForm" class="stacked-form compact">
+                    <input id="importantInput" type="text" placeholder="Add an important topic" required />
+                    <button type="submit">Add</button>
+                  </form>
+                  <ul id="importantList" class="item-list"></ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </section>
+
+      <section id="sectionPage" class="section-page page hidden">
+        <div class="planner-heading">
+          <div class="planner-heading-row">
+            <button id="closeSectionPage" type="button" class="small-btn back-btn">← Back</button>
+            <div>
+              <p class="eyebrow" id="sectionTypeLabel">Section</p>
+              <h2 id="sectionTitle">Section Details</h2>
+            </div>
+          </div>
+        </div>
+        <div id="sectionContent" class="section-page-content"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
